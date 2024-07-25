@@ -206,13 +206,6 @@ GByteArray *pgraph_vk_compile_glsl_to_spv(glslang_stage_t stage,
 
     glslang_spv_options_t spv_options = {
         .validate = true,
-
-#if defined(CONFIG_RENDERDOC)
-        .disable_optimizer = true,
-        .generate_debug_info = true,
-        .emit_nonsemantic_shader_debug_info = true,
-        .emit_nonsemantic_shader_debug_source = true,
-#endif
     };
     glslang_program_SPIRV_generate_with_options(program, stage, &spv_options);
 
